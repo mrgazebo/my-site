@@ -23,10 +23,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       background: var(--bg);
@@ -62,22 +58,32 @@
     }
 
     .main-line {
-      font-size: clamp(2.6rem, 10vw, 5.8rem);
-      font-weight: 700;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 0.18em;
+      align-items: start;
       margin: 0;
     }
 
+    .sam-word,
+    .makes-word {
+      font-size: clamp(2.6rem, 10vw, 5.8rem);
+      font-weight: 700;
+      display: block;
+    }
+
     .stack {
+      grid-column: 2;
       margin: 0;
       padding: 0;
       list-style: none;
-      margin-left: 4.3ch;
     }
 
     .stack li {
       font-size: clamp(2.1rem, 8vw, 4.9rem);
       font-weight: 700;
       margin: 0;
+      display: block;
     }
 
     .profile {
@@ -95,6 +101,7 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       background: var(--bg-soft);
+      filter: sepia(0.72) saturate(1.2) hue-rotate(-8deg) brightness(0.88) contrast(1.08);
     }
 
     .contact-card {
@@ -107,7 +114,6 @@
       border-radius: 22px;
       padding: 22px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(4px);
     }
 
     .contact-card h2 {
@@ -187,6 +193,11 @@
       line-height: 1.45;
     }
 
+    .code-note {
+      font-weight: 700;
+      color: var(--text);
+    }
+
     @media (max-width: 520px) {
       .page {
         padding-top: 24px;
@@ -196,10 +207,6 @@
         padding: 18px;
         border-radius: 18px;
       }
-
-      .stack {
-        margin-left: 3.7ch;
-      }
     }
   </style>
 </head>
@@ -207,25 +214,30 @@
   <main class="page">
     <div class="wrap">
       <section class="hero">
-        <div class="title-block" aria-label="sam makes stuff, edits, writes, shoots">
-          <h1 class="main-line">sam makes stuff</h1>
-          <ul class="stack">
-            <li>edits</li>
-            <li>writes</li>
-            <li>shoots</li>
-          </ul>
+        <div class="title-block" aria-label="sam makes stuff, edit, writes, shoots">
+          <div class="main-line">
+            <span class="sam-word">sam</span>
+            <span class="makes-word">makes</span>
+            <ul class="stack">
+              <li>stuff</li>
+              <li>edit</li>
+              <li>writes</li>
+              <li>shoots</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <div class="profile">
-        <img src="sam.jpg" alt="Portrait of Sam">
+        <img src="images/sam.jpg" alt="Portrait of Sam">
       </div>
 
       <section class="contact-card">
         <h2>contact</h2>
-        <p>Use the form below to send me a message.</p>
+        <p>Use the form below to open an email message in your mail app.</p>
 
-        <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+        <!-- REPLACE contact@sammakesstuff.net BELOW with the email address you want messages sent to -->
+        <form action="mailto:contact@sammakesstuff.net" method="post" enctype="text/plain">
           <label>
             name
             <input type="text" name="name" placeholder="your name" required>
@@ -233,7 +245,7 @@
 
           <label>
             email
-            <input type="email" name="email" placeholder="your@email.com" required>
+            <input type="email" name="email" placeholder="contact@sammakesstuff.net" required>
           </label>
 
           <label>
@@ -245,7 +257,12 @@
         </form>
 
         <div class="note">
-          Replace the Formspree form ID in the code before this will send email.
+          <span class="code-note">Where to add your email:</span>
+          find this line in the code:
+          <br>
+          <code>action="mailto:contact@sammakesstuff.net"</code>
+          <br>
+          and replace <code>contact@sammakesstuff.net</code> with your real destination email address.
         </div>
       </section>
     </div>
