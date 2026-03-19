@@ -20,6 +20,9 @@
       --bg: #0f100c;
       --text: #FBDB5B;
       --text-soft: rgba(251, 219, 91, 0.7);
+      --bubble: #FBDB5B;
+      --bubble-hover: #f3f1e8;
+      --icon-dark: #0f100c;
     }
 
     * {
@@ -36,7 +39,7 @@
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 20px 20px 110px;
     }
 
     .wrap {
@@ -55,28 +58,66 @@
     .sub {
       font-size: clamp(1rem, 3.5vw, 1.2rem);
       color: var(--text-soft);
-      margin-bottom: 30px;
+      margin-bottom: 0;
       letter-spacing: 0.08em;
     }
 
-    .contact {
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
+    .bottom-icons {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
     }
 
-    .contact a {
-      color: var(--text-soft);
+    .icon-link {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bubble);
+      color: var(--icon-dark);
       text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    .icon-link:hover {
+      background: var(--bubble-hover);
+      color: var(--text);
+      transform: translateY(-2px);
     }
 
-    /* Allow wrapping on very small screens */
+    .icon-link img,
+    .icon-link svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    /* If your saved icon files are SVGs that use currentColor, this makes them inherit the link color */
+    .icon-link svg {
+      stroke: currentColor;
+    }
+
     @media (max-width: 420px) {
       h1 {
         white-space: normal;
+      }
+
+      .bottom-icons {
+        bottom: 22px;
+        gap: 14px;
+      }
+
+      .icon-link {
+        width: 52px;
+        height: 52px;
       }
     }
   </style>
@@ -86,10 +127,26 @@
   <div class="wrap">
     <h1>sam makes stuff</h1>
     <div class="sub">writes - shoots - edits</div>
+  </div>
 
-    <div class="contact">
-      <a href="mailto:hello@sammakesstuff.net">say hello</a>
-    </div>
+  <div class="bottom-icons">
+    <a
+      class="icon-link"
+      href="https://www.youtube.com/@sam_makes_stuff"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="YouTube"
+    >
+      <img src="images/icon_youtube.svg" alt="YouTube icon">
+    </a>
+
+    <a
+      class="icon-link"
+      href="mailto:hello@sammakesstuff.net"
+      aria-label="Email"
+    >
+      <img src="images/icon_mail.svg" alt="Mail icon">
+    </a>
   </div>
 </body>
 </html>
