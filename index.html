@@ -65,7 +65,6 @@
     }
 
     .video-thumb {
-      position: relative;
       display: block;
       border-radius: 16px;
       overflow: hidden;
@@ -87,24 +86,6 @@
 
     .video-thumb:hover img {
       filter: grayscale(1) brightness(1.1);
-    }
-
-    .left-thumb::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--text);
-      opacity: .35;
-      pointer-events: none;
-      transition: opacity .2s ease;
-    }
-
-    .left-thumb:hover img {
-      filter: none;
-    }
-
-    .left-thumb:hover::after {
-      opacity: 0;
     }
 
     .icon-row {
@@ -156,13 +137,13 @@
 
     <div class="video-row">
       <a
-        class="video-thumb left-thumb"
+        class="video-thumb"
         href="https://youtu.be/3F9RYNYPZ74?si=Op7iUcyOvX0Tjip0"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Watch video 1 on YouTube"
       >
-        <img src="https://img.youtube.com/vi/3F9RYNYPZ74/maxresdefault.jpg" alt="Video thumbnail 1">
+        <img src="The Accusation Yellow.png" alt="Video thumbnail 1">
       </a>
 
       <a
