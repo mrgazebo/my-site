@@ -88,6 +88,14 @@
       filter: grayscale(1) brightness(1.1);
     }
 
+    .video-thumb.left-thumb img {
+      filter: sepia(1) hue-rotate(330deg) saturate(4) brightness(.95);
+    }
+
+    .video-thumb.left-thumb:hover img {
+      filter: none;
+    }
+
     .icon-row {
       display: flex;
       justify-content: center;
@@ -137,7 +145,7 @@
 
     <div class="video-row">
       <a
-        class="video-thumb"
+        class="video-thumb left-thumb"
         href="https://youtu.be/3F9RYNYPZ74?si=Op7iUcyOvX0Tjip0"
         target="_blank"
         rel="noopener noreferrer"
