@@ -32,7 +32,7 @@
       text-align: center;
     }
 
-    .wrap { width: 100%; max-width: 700px; }
+    .wrap { width: 100%; max-width: 1100px; }
 
     .portrait {
       display: block;
@@ -56,12 +56,16 @@
       letter-spacing: .08em;
     }
 
-    .video-thumb {
-      position: relative;
-      display: block;
-      width: 100%;
-      max-width: 560px;
+    .video-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
       margin: 0 auto 22px;
+      align-items: start;
+    }
+
+    .video-thumb {
+      display: block;
       border-radius: 16px;
       overflow: hidden;
       text-decoration: none;
@@ -72,22 +76,6 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-    }
-
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: grid;
-      place-items: center;
-      width: 72px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: rgb(15 16 12 / 75%);
-      color: var(--text);
-      font-size: 1.8rem;
-      line-height: 1;
     }
 
     .icon-row {
@@ -120,11 +108,14 @@
       height: 24px;
     }
 
+    @media (max-width: 700px) {
+      .video-row { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 420px) {
       h1 { white-space: normal; }
       .portrait { width: 170px; margin-bottom: 20px; }
       .icon-link { width: 52px; }
-      .play-button { width: 60px; font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -134,16 +125,37 @@
     <h1>sam makes stuff</h1>
     <p class="sub">writes - shoots - edits</p>
 
-    <a
-      class="video-thumb"
-      href="https://youtu.be/nGplGJ0510c?si=1ysqV0D-HWskpVyu"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Watch video on YouTube"
-    >
-      <img src="https://img.youtube.com/vi/nGplGJ0510c/maxresdefault.jpg" alt="Watch video">
-      <span class="play-button" aria-hidden="true">▶</span>
-    </a>
+    <div class="video-row">
+      <a
+        class="video-thumb"
+        href="https://youtu.be/3F9RYNYPZ74?si=Op7iUcyOvX0Tjip0"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Watch video 1 on YouTube"
+      >
+        <img src="https://img.youtube.com/vi/3F9RYNYPZ74/maxresdefault.jpg" alt="Video thumbnail 1">
+      </a>
+
+      <a
+        class="video-thumb"
+        href="https://youtu.be/nGplGJ0510c?si=1ysqV0D-HWskpVyu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Watch video 2 on YouTube"
+      >
+        <img src="https://img.youtube.com/vi/nGplGJ0510c/maxresdefault.jpg" alt="Video thumbnail 2">
+      </a>
+
+      <a
+        class="video-thumb"
+        href="https://www.youtube.com/watch?v=RUTNPvQCwV4"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Watch video 3 on YouTube"
+      >
+        <img src="https://img.youtube.com/vi/RUTNPvQCwV4/maxresdefault.jpg" alt="Video thumbnail 3">
+      </a>
+    </div>
 
     <nav class="icon-row" aria-label="Social links">
       <a class="icon-link" href="https://www.youtube.com/@sam_makes_stuff" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
