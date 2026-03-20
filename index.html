@@ -65,6 +65,7 @@
     }
 
     .video-thumb {
+      position: relative;
       display: block;
       border-radius: 16px;
       overflow: hidden;
@@ -88,12 +89,22 @@
       filter: grayscale(1) brightness(1.1);
     }
 
-    .video-thumb.left-thumb img {
-      filter: sepia(1) hue-rotate(330deg) saturate(4) brightness(.95);
+    .left-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--text);
+      opacity: .35;
+      pointer-events: none;
+      transition: opacity .2s ease;
     }
 
-    .video-thumb.left-thumb:hover img {
+    .left-thumb:hover img {
       filter: none;
+    }
+
+    .left-thumb:hover::after {
+      opacity: 0;
     }
 
     .icon-row {
