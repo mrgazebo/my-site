@@ -57,29 +57,19 @@
     }
 
     .video-featured {
-      display: block;
+      width: 100%;
       max-width: 560px;
+      aspect-ratio: 16 / 9;
       margin: 0 auto 16px;
       border-radius: 16px;
       overflow: hidden;
-      text-decoration: none;
-      transition: transform .2s ease;
     }
 
-    .video-featured:hover {
-      transform: translateY(-2px);
-    }
-
-    .video-featured img {
+    .video-featured iframe {
       display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      transition: filter .2s ease;
-    }
-
-    .video-featured:hover img {
-      filter: grayscale(1) brightness(1.1);
+      height: 100%;
+      border: 0;
     }
 
     .video-row {
@@ -161,15 +151,15 @@
     <h1>sam makes stuff</h1>
     <p class="sub">writes - shoots - edits</p>
 
-    <a
-      class="video-featured"
-      href="https://youtu.be/V7VxUWVnJIM"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Watch featured video on YouTube"
-    >
-      <img src="https://img.youtube.com/vi/V7VxUWVnJIM/maxresdefault.jpg" alt="Featured video thumbnail">
-    </a>
+    <div class="video-featured">
+      <iframe
+        src="https://www.youtube.com/embed/V7VxUWVnJIM"
+        title="Featured video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
 
     <div class="video-row">
       <a
@@ -179,7 +169,7 @@
         rel="noopener noreferrer"
         aria-label="Watch video 1 on YouTube"
       >
-        <img src="The Accusation Yellow.jpg" alt="Video thumbnail 1">
+        <img src="The Accusation Yellow.png" alt="Video thumbnail 1">
       </a>
 
       <a
